@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -30,7 +31,6 @@ class ChromeTest {
     @AfterEach
     void teardown() {
         driver.quit();
-        driver = null;
     }
 
     @Test
@@ -41,10 +41,8 @@ class ChromeTest {
         driver.findElement(By.className("checkbox")).click();
         driver.findElement(By.tagName("button")).click();
         String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
-        String actual = driver.findElement(By.tagName("[data-test-id='order-success]")).getText().trim();
+        String actual = driver.findElement(By.cssSelector("[data-test-id='order-success]")).getText().trim();
         Assertions.assertEquals (expected, actual);
     }
-
-
 }
 
