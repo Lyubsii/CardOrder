@@ -40,7 +40,7 @@ class ChromeTest {
         driver.findElement(By.className("checkbox")).click();
         driver.findElement(By.tagName("button")).click();
         String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
-        String actual = driver.findElement(By.cssSelector("[data-test-id='order-success]")).getText().trim();
+        String actual = driver.findElement(By.cssSelector("[data-test-id='order-success']")).getText().trim();
         Assertions.assertEquals (expected, actual);
     }
 }
